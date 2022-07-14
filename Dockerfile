@@ -3,7 +3,7 @@ FROM centos:8
 COPY bootstrap.sh /bootstrap.sh
 RUN sh /bootstrap.sh
 
-ENV SAMBA_VERSION=4.16.0
+ENV SAMBA_VERSION=4.16.2
 RUN mkdir ~/build \
  && cd ~/build \
  && wget --content-disposition https://download.samba.org/pub/samba/stable/samba-$SAMBA_VERSION.tar.gz
