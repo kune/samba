@@ -1,9 +1,8 @@
 FROM centos:7
 
-RUN curl  "https://git.samba.org/?p=samba.git;a=blob_plain;f=bootstrap/generated-dists/centos7/bootstrap.sh;hb=v4-16-test" > /bootstrap.sh
-RUN sh /bootstrap.sh
-
 ENV SAMBA_VERSION=4.18.1
+RUN curl  "https://git.samba.org/?p=samba.git;a=blob_plain;f=bootstrap/generated-dists/centos7/bootstrap.sh" > /bootstrap.sh
+RUN sh /bootstrap.sh
 RUN mkdir ~/build \
  && cd ~/build \
  && wget --content-disposition https://download.samba.org/pub/samba/stable/samba-$SAMBA_VERSION.tar.gz
