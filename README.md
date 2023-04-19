@@ -1,18 +1,17 @@
-# Samba Version 4.16.3 with Time Machine capabilities
+# Samba Version 4.18.1 with Time Machine capabilities
 Based on centos:8
 
 ### Build
 
 #### Build image: 
 ```bash
-docker build . -t kune/samba:4.16.3-centos8
+docker build . -t kune/samba:4.18.1-centos8
 ```
 
 ### Run
 
 #### Sample environment: 
 - /srv/samba/smb.conf: Samba Configuration
-- /srv/samba/passwd: Passwd user file
 - /srv/samba/private: Directory for samba databases
 - /srv/backup/timemachine: Location for time machine backups
 - /srv/other: Non-time machine share location
@@ -41,7 +40,7 @@ docker build . -t kune/samba:4.16.3-centos8
     directory mask = 0700
     spotlight = no
     fruit:time machine = yes
-    fruit:time machine max size = 2T
+\#    fruit:time machine max size = 2T
     durable handles = yes
     kernel oplocks = no
     kernel share modes = no
@@ -64,12 +63,34 @@ docker run \
   -v /srv/other:/srv/other \
   -v /srv/samba/smb.conf:/etc/samba/smb.conf \
   -v /srv/samba/private:/var/lib/samba/private \
-  -v /srv/samba/passwd:/etc/passwd \
   -p137:137 -p138:138 -p139:139 -p445:445 -p5353:5353 \
   --name samba \
   -d \
   kune/samba
 ```
+
+##### User Management: 
+Add User: 
+```bash
+docker exec -it adduser $USERNAME
+docker exec -it pdbedit -a $USERNAME
+```
+
+Remove User: 
+```bash
+docker exec -it pdbedit -x $USERNAME
+```
+
+List Users: 
+```bash
+docker exec -it pdbedit -L
+```
+
+Change User Password: 
+```bash
+docker exec -it smbpasswd $USERNAME
+```
+
 
 ### Avahi
 To make the shares discoverable for Macs and available for backups the avahi-daeon needs to be installed and configured: 
