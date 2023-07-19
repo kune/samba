@@ -1,6 +1,6 @@
 FROM centos:7
 
-ENV SAMBA_VERSION=4.18.4
+ENV SAMBA_VERSION=4.18.5
 RUN curl  "https://git.samba.org/?p=samba.git;a=blob_plain;f=bootstrap/generated-dists/centos7/bootstrap.sh" > /bootstrap.sh
 RUN sh /bootstrap.sh
 RUN mkdir ~/build \
