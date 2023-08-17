@@ -1,11 +1,11 @@
-# Samba Version 4.18.5 with Time Machine capabilities
+# Samba Version 4.18.6 with Time Machine capabilities
 Based on centos:7
 
 ### Build
 
 #### Build image: 
 ```bash
-docker build . -t kune/samba:4.18.5-centos7
+docker build . -t kune/samba:4.18.6-centos7
 ```
 
 ### Run
@@ -129,4 +129,4 @@ To make the shares discoverable for Macs and available for backups the avahi-dae
 - Currently no Spotlight support
 
 #### Dependencies
-- The bootstrap.sh file originates from https://wiki.samba.org/index.php/Package_Dependencies_Required_to_Build_Samba#Verified_Package_Dependencies
+- The bootstrap.sh from the samba package is used to resolve all dependencies.
