@@ -1,6 +1,6 @@
 FROM centos:7
 
-ENV SAMBA_VERSION=4.19.0
+ENV SAMBA_VERSION=4.19.1
 RUN yum install -y wget
 RUN mkdir ~/build \
  && cd ~/build \
