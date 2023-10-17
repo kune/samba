@@ -12,6 +12,6 @@ jobs:
     runs-on: self-hosted
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Build the Docker image
       run: git fetch --tags && docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }} && docker build . -t kune/samba:latest && docker push kune/samba:latest && for tag in $(git tag -l --points-at HEAD); do docker tag kune/samba:latest kune/samba:$tag; docker push kune/samba:$tag; done && docker tag kune/samba:latest kune/samba:$(git rev-parse --short HEAD) && docker push kune/samba:$(git rev-parse --short HEAD)
