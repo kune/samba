@@ -1,11 +1,11 @@
-# Samba Version 4.19.4 with Time Machine capabilities
+# Samba Version 4.19.5 with Time Machine capabilities
 Based on centos:7
 
 ### Build
 
 #### Build image: 
 ```bash
-docker build . -t kune/samba:4.19.4-centos7
+docker build . -t kune/samba:4.19.5-centos7
 ```
 
 ### Run
