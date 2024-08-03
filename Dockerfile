@@ -1,14 +1,15 @@
-FROM centos:7
+FROM debian:12
 
-ENV SAMBA_VERSION=4.20.2
-RUN yum install -y wget
+ENV SAMBA_VERSION=4.20.3
+RUN apt-get update
+RUN apt-get install wget -y
 RUN mkdir ~/build \
  && cd ~/build \
  && wget --content-disposition https://download.samba.org/pub/samba/stable/samba-$SAMBA_VERSION.tar.gz
 RUN cd ~/build \
  && tar xvfz samba-$SAMBA_VERSION.tar.gz
 ENV LANG=en_US.UTF-8
-RUN cd ~/build/samba-$SAMBA_VERSION/bootstrap/generated-dists/centos7 \
+RUN cd ~/build/samba-$SAMBA_VERSION/bootstrap/generated-dists/debian12 \
  && ./bootstrap.sh
 RUN cd ~/build/samba-$SAMBA_VERSION \
  && ./configure \
