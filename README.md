@@ -1,11 +1,11 @@
-# Samba Version 4.23.3 with Time Machine capabilities
+# Samba Version 4.23.4 with Time Machine capabilities
 Based on debian:12
 
 ### Build
 
 #### Build image: 
 ```bash
-docker build . -t kune/samba:4.23.3-debian12
+docker build . -t kune/samba:4.23.4-debian12
 ```
 
 ### Run
