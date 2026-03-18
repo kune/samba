@@ -1,6 +1,6 @@
 FROM debian:12
 
-ENV SAMBA_VERSION=4.23.6
+ENV SAMBA_VERSION=4.24.0
 RUN apt-get update
 RUN apt-get install wget -y
 RUN mkdir ~/build \
