@@ -19,7 +19,7 @@ RUN cd ~/build/samba-$SAMBA_VERSION \
     --with-privatedir=/var/lib/samba/private \
     --with-smbpasswd-file=/etc/samba/smbpasswd \
     --enable-fhs \
- && make -j$(nproc) \
+ && make -j4 \
  && make install 
 COPY initunixusers /initunixusers
 COPY entrypoint /entrypoint
